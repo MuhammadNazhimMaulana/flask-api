@@ -1,3 +1,4 @@
 Flask>=2.2.2
 Flask-RESTful==0.3.10
 Flask-Cors==3.0.10
+Pandas==1.1.3
