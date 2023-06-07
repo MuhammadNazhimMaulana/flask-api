@@ -45,21 +45,21 @@ class Predict(Resource):
             ds['Skor'] = ds['Skor'].astype(int)
             X_train, X_test, y_train, y_test = train_test_split(ds.Kalimat, ds.Skor, random_state=1)    
 
-            # Call Vectorizer
-            v =CountVectorizer()
+            # # Call Vectorizer
+            # v =CountVectorizer()
 
-            # Fit TRansform
-            X_train_count = v.fit_transform(X_train)
-            X_test_count = v.transform(X_test)
+            # # Fit TRansform
+            # X_train_count = v.fit_transform(X_train)
+            # X_test_count = v.transform(X_test)
 
-            # Import Logreg
-            from sklearn.linear_model import LogisticRegression
+            # # Import Logreg
+            # from sklearn.linear_model import LogisticRegression
 
-            # Variabel Logreg
-            logreg = LogisticRegression()
+            # # Variabel Logreg
+            # logreg = LogisticRegression()
 
-            # Fit
-            logreg.fit(X_train_count, y_train)
+            # # Fit
+            # logreg.fit(X_train_count, y_train)
 
             # Get Request Data
             data = request.get_json()
