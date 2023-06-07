@@ -35,15 +35,15 @@ class Predict(Resource):
             # Load Dataset
             ds = pd.read_excel('Words_Newest_2.0.xlsx')
 
-            # Remove Unnamed Column
-            ds = ds.loc[:,~ds.columns.str.match("Unnamed")]
+            # # Remove Unnamed Column
+            # ds = ds.loc[:,~ds.columns.str.match("Unnamed")]
 
-            # Fixes
-            ds.dropna(subset=['Skor'], inplace=True)
+            # # Fixes
+            # ds.dropna(subset=['Skor'], inplace=True)
 
-            # Change Skor to Integer
-            ds['Skor'] = ds['Skor'].astype(int)
-            X_train, X_test, y_train, y_test = train_test_split(ds.Kalimat, ds.Skor, random_state=1)    
+            # # Change Skor to Integer
+            # ds['Skor'] = ds['Skor'].astype(int)
+            # X_train, X_test, y_train, y_test = train_test_split(ds.Kalimat, ds.Skor, random_state=1)    
 
             # # Call Vectorizer
             # v =CountVectorizer()
