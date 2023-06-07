@@ -33,7 +33,7 @@ class Predict(Resource):
     def post(self):
         try:
             # Load Dataset
-            # ds = pd.read_excel('Words_Newest_2.0.xlsx')
+            pd.read_excel('Words_Newest_2.0.xlsx')
 
             # # Remove Unnamed Column
             # ds = ds.loc[:,~ds.columns.str.match("Unnamed")]
