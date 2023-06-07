@@ -63,11 +63,11 @@ class Predict(Resource):
             logreg.fit(X_train_count, y_train)
 
             # Get Request Data
-            data = request.get_json()
+            data = request.form['kalimat'] 
 
             if request.method == 'POST':
                     # Transform Sent Word
-                    vect = v.transform([data['kalimat']])
+                    vect = v.transform([data])
 
                     # Predict
                     my_prediction = logreg.predict(vect)
