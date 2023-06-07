@@ -2,6 +2,7 @@ from flask import Flask, request, redirect, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS
 import pandas as pd 
+import requests
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
@@ -74,8 +75,9 @@ class Predict(Resource):
                     # Result
                     return jsonify({'Result': my_prediction.tolist()[0]})
 
-        except Exception as error:
-            return {'error': error}
+        except requests.exceptions.HTTPError as errh:
+            # return {'error': errh}
+            print(errh)
 
 api.add_resource(Test,'/')
 api.add_resource(Predict,'/predict')
