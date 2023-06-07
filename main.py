@@ -33,7 +33,7 @@ class Predict(Resource):
     def post(self):
         try:
             # Load Dataset
-            pd.read_excel('Words_Newest_2.0.xlsx')
+            # pd.read_excel('Words_Newest_2.0.xlsx')
 
             # # Remove Unnamed Column
             # ds = ds.loc[:,~ds.columns.str.match("Unnamed")]
@@ -46,7 +46,7 @@ class Predict(Resource):
             # X_train, X_test, y_train, y_test = train_test_split(ds.Kalimat, ds.Skor, random_state=1)    
 
             # # Call Vectorizer
-            # v =CountVectorizer()
+            v =CountVectorizer()
 
             # # Fit TRansform
             # X_train_count = v.fit_transform(X_train)
