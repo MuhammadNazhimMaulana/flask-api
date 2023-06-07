@@ -73,7 +73,7 @@ class Predict(Resource):
                     my_prediction = logreg.predict(vect)
                     # print(my_prediction[0])
                     # Result
-                    return jsonify({'Result': my_prediction.tolist()[0]})
+                    return jsonify(my_prediction.tolist()[0])
 
         except requests.exceptions.HTTPError as errh:
             # return {'error': errh}
