@@ -34,7 +34,8 @@ class Predict(Resource):
         try:
             # Load Dataset
             ds = pd.read_excel('Words_Newest_2.0.xlsx')
-
+            print(ds)
+            
             # # Remove Unnamed Column
             # ds = ds.loc[:,~ds.columns.str.match("Unnamed")]
 
