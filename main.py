@@ -1,5 +1,6 @@
-from flask import Flask, request, redirect, jsonify
+from flask import Flask, request, render_template, jsonify
 from flask_restful import Resource, Api
+from flask.views import View
 from flask_cors import CORS
 import pandas as pd 
 import requests
@@ -12,20 +13,9 @@ app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 api = Api(app)
 
-class Test(Resource):
-    def get(self):
-        return 'Welcome to, Test App API!'
-
-    def post(self):
-        try:
-            value = request.get_json()
-            if(value):
-                return {'Post Values': value}, 201
-
-            return {"error":"Invalid format."}
-
-        except Exception as error:
-            return {'error': error}
+class MainView(View):
+    def dispatch_request(self):
+         return render_template("index.html")
 
 class Predict(Resource):
     def get(self):
@@ -79,7 +69,10 @@ class Predict(Resource):
             # return {'error': errh}
             print(errh)
 
-api.add_resource(Test,'/')
+# View
+app.add_url_rule('/', view_func=MainView.as_view(name='index'))
+
+# API
 api.add_resource(Predict,'/predict')
 
 if __name__ == "__main__":
