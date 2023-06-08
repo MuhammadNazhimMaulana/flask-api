@@ -1,21 +1,20 @@
 from flask import Flask, request, render_template, jsonify
 from flask_restful import Resource, Api
-from flask.views import View
 from flask_cors import CORS
 import pandas as pd 
 import requests
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from blueprints.home.home import home_bp
 import os
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 api = Api(app)
 
-class MainView(View):
-    def dispatch_request(self):
-         return render_template("index.html")
+# Register
+app.register_blueprint(home_bp)
 
 class Predict(Resource):
     def get(self):
@@ -68,9 +67,6 @@ class Predict(Resource):
         except requests.exceptions.HTTPError as errh:
             # return {'error': errh}
             print(errh)
-
-# View
-app.add_url_rule('/', view_func=MainView.as_view(name='index'))
 
 # API
 api.add_resource(Predict,'/predict')
