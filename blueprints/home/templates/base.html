@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} - Prediction API</title>
+    <style>
+        body{
+            background: lightblue;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .text-main{
+            font-size: 70px;
+            margin-bottom: -20px;
+        }
+        .text-secondary{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Content -->
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
