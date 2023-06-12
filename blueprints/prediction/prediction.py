@@ -33,7 +33,7 @@ def post():
         from sklearn.linear_model import LogisticRegression
 
         # Variabel Logreg
-        logreg = LogisticRegression()
+        logreg = LogisticRegression(penalty='elasticnet', solver='saga', l1_ratio=0.99, C=0.8)
 
         # Fit
         logreg.fit(X_train_count, y_train)
