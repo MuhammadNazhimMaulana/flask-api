@@ -1,0 +1,18 @@
+name: Continus Integration Check
+run-name: ${{ github.actor }} Push an Update
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2  
+
+      - name: Install requirement
+      - run: pip install -r requirements.txt 
